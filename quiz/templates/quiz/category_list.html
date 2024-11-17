@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+<div class="container result-container text-left">
+<center><h2>{% trans "Category list" %}</h2></center>
+
+<ul>
+  {% for cat in category_list %}
+  <hr>
+  <li>
+	<a class='nav-link text-dark' href="{% url 'quiz_category_list_matching' category_name=cat.category %}">
+	  {{ cat.category }}
+	</a>
+  </li>
+  <hr>
+  {% endfor %}
+</ul>
+</div>
+{% endblock %}
